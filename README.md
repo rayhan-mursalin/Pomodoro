@@ -4,4 +4,4 @@ Pomodoro timer app built with
 - CSS
 - Vanilla Javascript
 
-Deployed with Surge (Surge.sh)
+Deployed with Surge (https://surge.sh/)
