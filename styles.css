@@ -1,0 +1,15 @@
+html {
+	box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+  }
+  
+  :root {
+	--pomodoro: hsl(223, 25%, 40%);
+	--shortBreak: hsl(48, 23%, 40%);
+	--longBreak: hsl(105, 16%, 40%);
+  }
