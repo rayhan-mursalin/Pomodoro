@@ -7,14 +7,17 @@ const timer = {
 };
 let interval;
 
+const buttonSound = new Audio('button-sound.mp3');
 const mainButton = document.getElementById('js-btn');
 mainButton.addEventListener('click', () => {
-  const { action } = mainButton.dataset;
-  if (action === 'start') {
-    startTimer();
-  } else {
-    stopTimer();
-  }
+	buttonSound.play();
+
+	const { action } = mainButton.dataset;
+	if (action === 'start') {
+		startTimer();
+	} else {
+		stopTimer();
+	}
 });
 
 const modeButtons = document.querySelector('#js-mode-buttons');
@@ -63,6 +66,8 @@ function startTimer() {
 			default:
 			  switchMode('pomodoro');
 		  }
+
+		  document.querySelector(`[data-sound="${timer.mode}"]`).play();
 	
 		  startTimer();
 	
