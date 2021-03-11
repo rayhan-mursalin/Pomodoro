@@ -3,10 +3,26 @@ const timer = {
 	shortBreak: 5,
 	longBreak: 15,
 	longBreakInterval: 4,
-  };
+};
+let interval;
 
 const modeButtons = document.querySelector('#js-mode-buttons');
 modeButtons.addEventListener('click', handleMode);
+
+function startTimer() {
+	let { total } = timer.remainingTime;
+	const endTime = Date.parse(new Date()) + total * 1000;
+
+	interval = setInterval(function() {
+	  timer.remainingTime = getRemainingTime(endTime);
+	  updateClock();
+  
+	  total = timer.remainingTime.total;
+	  if (total <= 0) {
+		clearInterval(interval);
+	  }
+	}, 1000);
+}
 
 function updateClock() {
 	const { remainingTime } = timer;
