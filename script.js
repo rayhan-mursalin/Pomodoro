@@ -65,11 +65,17 @@ function startTimer() {
 			  break;
 			default:
 			  switchMode('pomodoro');
-		  }
+		}
 
-		  document.querySelector(`[data-sound="${timer.mode}"]`).play();
+		if (Notification.permission === 'granted') {
+			const text =
+			  timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+			new Notification(text);
+		}
+
+		document.querySelector(`[data-sound="${timer.mode}"]`).play();
 	
-		  startTimer();
+		startTimer();
 	
 	  }
 	}, 1000);
